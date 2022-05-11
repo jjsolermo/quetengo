@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "menuapp-8323f": {
+      "hosting": {
+        "app": [
+          "menuapp-8323f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "menuapp-8323f"
+  }
+}

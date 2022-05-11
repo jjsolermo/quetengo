@@ -1,0 +1,26 @@
+.login-margin{
+    margin-top: 8%;
+    
+}
+#logo_casa{
+    display: block;
+    width: 48%;
+    height: 48%;
+    object-fit: inherit;
+    object-position: inherit;
+    border-radius: 50%;
+    box-shadow: 2% black;
+    box-shadow: 10px 5px 5px black;
+    margin-top: 11%;
+}
+.padre {
+    height: 20%;
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .borde{
+    border: solid 1px;
+  }

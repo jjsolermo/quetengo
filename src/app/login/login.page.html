@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Organizador de cocina</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+  <div class="container" style="margin: 2%; overflow: hidden;">
+    <div class="row padre">
+      <img id="logo_casa" class="img-login" src ="../../assets/img/room.jpg"/>
+    </div>
+    <div class="row" class="login-margin">
+      <ion-input class="borde"  type="email"  placeholder="Inserta Email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">El Correo es invalido</ion-note>
+      
+      <ion-input class="borde" style="margin-top:3% ;" type="password"  placeholder="Inserta Password" formControlName="password"></ion-input>   
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">El password necesita 6 caracteres</ion-note> 
+    </div>
+    <div class="row">
+      <section class="login-margin">
+        <ion-button type="submit" expand="block" color="success" [disabled]="!credentials.valid">Login</ion-button>
+      </section>
+    </div>
+    <div>
+      <section class="login-margin">
+        <ion-button expand="block" (click)="register()">Nuevo Usuario</ion-button>
+      </section>
+    </div>
+  </div>
+</form>
+  <!-- <a href='https://www.freepik.es/fotos/interior-cocina'>Foto de interior cocina creado por freepik - www.freepik.es</a> -->
+</ion-content>
