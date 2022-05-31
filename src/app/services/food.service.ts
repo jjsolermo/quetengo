@@ -1,12 +1,13 @@
 import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { collection, collectionData, deleteDoc, doc, docData, Firestore, getDocs, setDoc } from '@angular/fire/firestore';
+import { collection, collectionData, deleteDoc, doc, docData, Firestore, getDocs, query, setDoc, where } from '@angular/fire/firestore';
 import { FormGroup } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
 import * as moment from 'moment';
 import { Food } from '../share/food';
 import { app } from './../../environments/environment';
 import { getFirestore } from 'firebase/firestore'
+import { Observable } from 'rxjs';
 
 
 const db = getFirestore(app);
@@ -131,4 +132,25 @@ export class FoodService {
     return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('-')
   }
 
+  async getFoodsByCongelador(place:string) : Promise<Array<Food>>{
+    let foodList:Array<Food> = [];
+    const q = query(collection(db, "food"), where("place", "==", place));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      var food:Food = {
+        uid: doc.id,
+        name: doc.data().name,
+        description: doc.data().description,
+        qty: doc.data().qty,
+        expiration: doc.data().expiration,
+        buy: doc.data().buy,
+        place: doc.data().place
+      }
+      foodList.push(food);
+    });
+
+    return foodList;
+  }
+
+  
 }

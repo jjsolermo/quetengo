@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "quetengo",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

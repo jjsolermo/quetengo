@@ -33,6 +33,26 @@ const routes: Routes = [
     path: 'main',
     loadChildren: () => import('./main/main.module').then( m => m.MainPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'nevera',
+    loadChildren: () => import('./nevera/nevera.module').then( m => m.NeveraPageModule)
+  },
+  {
+    path: 'congelador',
+    loadChildren: () => import('./congelador/congelador.module').then( m => m.CongeladorPageModule)
+  },
+  {
+    path: 'otros',
+    loadChildren: () => import('./otros/otros.module').then( m => m.OtrosPageModule)
+  },
+  {
+    path: 'todos',
+    loadChildren: () => import('./todos/todos.module').then( m => m.TodosPageModule)
+  },
+  {
+    path: 'despensa',
+    loadChildren: () => import('./despensa/despensa.module').then( m => m.DespensaPageModule)
   }
 ];
 

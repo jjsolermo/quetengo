@@ -13,17 +13,17 @@
     <h3 style="text-align: center;">CADUCAN PRONTO</h3>
   </div>
   <div class="row paddinCS" style="position: relative;">
-    <ion-spinner class="spin" name="bubbles" color="primary" *ngIf="!visible"></ion-spinner>
+    <ion-spinner class="spin spinner" name="bubbles" color="primary" *ngIf="!visible"></ion-spinner>
   </div>
   <div class="row paddinCS" *ngIf="visible">
     <ion-list>
-      <ion-list-header>
+      <ion-list-header class="textoGrid">
         <ion-label>Nombre</ion-label>
         <ion-label>Caducidad</ion-label>
         <ion-label>Donde está</ion-label>
       </ion-list-header>
       <ion-item-sliding>
-        <ion-item *ngFor="let food of foods" (dblclick)="openModal(food)">
+        <ion-item class="textoGrid" *ngFor="let food of foods" (dblclick)="openModal(food)">
           <ion-label>{{food.name}}</ion-label>
           <ion-label>{{food.expiration}}</ion-label>
           <ion-label>{{food.place}}</ion-label>

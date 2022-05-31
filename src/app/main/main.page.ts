@@ -36,19 +36,8 @@ export class MainPage implements OnInit {
      },
      
    });
-   this.modal.onDidDismiss(data => {
-    console.log('dismiss');
-   });
+   
    await this.modal.present();
  }
-
- dismissModal() {
-   if (this.modal) {
-     this.modal.dismiss().then(() => {
-       this.modal = null;
-     });
-   }
- }
-
 
 }
