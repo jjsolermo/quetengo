@@ -94,14 +94,13 @@ export class FoodService {
     let food:Food;
     const datepipe: DatePipe = new DatePipe('en-US');
     let validateValue:boolean = true;
-    if(foodForm.value.expiration && datepipe.transform(new Date(foodForm.value.expiration),'dd-MMM-YYYY') < datepipe.transform(new Date(),'dd-MMM-YYYY')){
+    let expiration = new Date(foodForm.value.expiration);
+    let today = new Date();
+    if(foodForm.value.expiration != "" && expiration < today){
        this.presentToast('La caducidad es menor al día de hoy.');
        validateValue = false;
     }
-    if(foodForm.value.buy && datepipe.transform(new Date(foodForm.value.buy),'dd-MMM-YYYY') < datepipe.transform(new Date(),'dd-MMM-YYYY')){
-      this.presentToast('La compra es menor al día de hoy.');
-      validateValue = false;
-   }
+
    if(foodForm.value.qty <= 0){
      this.presentToast('La cantidad no puede ser 0 o inferior');
      validateValue = false;
